@@ -7289,7 +7289,6 @@ document.querySelectorAll('.nav-link').forEach(l => {
 });
 </script>
 
-  
 <!-- Floating contact card -->
 <script>
 (function () {
@@ -7322,10 +7321,16 @@ document.querySelectorAll('.nav-link').forEach(l => {
         'background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);transition:.15s;text-decoration:none;}' +
       '.kg__links a:hover{color:#fff;background:rgba(124,92,255,.28);border-color:rgba(124,92,255,.6);transform:translateY(-2px);}' +
       '.kg__links svg{width:15px;height:15px;}' +
+      '.kg__close{position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;border:1px solid rgba(124,92,255,.5);' +
+        'background:rgba(22,28,44,.98);color:#b4c2d6;cursor:pointer;display:grid;place-items:center;padding:0;line-height:1;' +
+        'font-family:inherit;transition:.15s;box-shadow:0 4px 12px rgba(0,0,0,.4);}' +
+      '.kg__close:hover{color:#fff;background:rgba(124,92,255,.4);border-color:rgba(124,92,255,.8);transform:scale(1.1);}' +
+      '.kg__close svg{width:11px;height:11px;}' +
       '@media print{.kg{display:none;}}' +
       '@media(max-width:640px){.kg{bottom:12px;right:12px;padding:10px;}}' +
       '</style>' +
       '<div class="kg" role="complementary" aria-label="Contact Kushal Ghosh">' +
+        '<button class="kg__close" type="button" title="Dismiss" aria-label="Dismiss"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
         '<div class="kg__"></div>' +
         '<div class="kg__body">' +
           '<span class="kg__label">Connect with</span>' +
@@ -7337,6 +7342,10 @@ document.querySelectorAll('.nav-link').forEach(l => {
           '</div>' +
         '</div>' +
       '</div>';
+    var closeBtn = root.querySelector('.kg__close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () { host.remove(); });
+    }
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', mount);
